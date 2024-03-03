@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritance</title>
+</head>
+<body>
+    <script>
+        // - Constructor Function dobuat untuk menambung property dan method sebuah object
+        // - Dalam Constuctor Funtion ini kita juga bisa memanggil constructor function lain ke dalam constructor function yang baru, namanya (inheritance)
+        // - Ketika constructor function tersebut dipanggil ke dalamnya, maka costructor baru yang di buat otomatis mewarisi property beserta methodnya dari constructor function yang lain.
+        // Untuk memanggil destructor function tersebut menggunakan kata kunci berikut :
+        // NamaConstructornya.call(this, NamaParameternya)
+
+        // Constructor Inheritance
+        function Employee(firstName) {
+            this.firstName = firstName,
+            this.sayHello = function(name) {
+                console.info(`Hello ${name}, nama saya ${this.firstName}, saya bagian dari Karyawan di Ussu`)
+            }
+        }
+
+        function Manager(firstName, lastName) {
+            // Constructor Inheritance (Memanggil Method dan parameter Employee)
+            Employee.call(this, firstName)
+            this.lastName = lastName
+        }
+
+
+        const kiki = new Employee("Kiki")
+        kiki.sayHello('Ratim')
+
+        const jay = new Manager("Asep","jajang")
+        jay.sayHello('Andi')
+        console.info(jay)
+
+
+
+    </script>
+</body>
+</html>

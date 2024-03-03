@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+
+        // Prototype
+        function Person(firstName,lastName){
+            this.namaDepan = firstName;
+            this.namaBelakang = lastName;
+            this.sayHello = function () {
+                console.info(`Hello ${this.namaDepan} my name is ${this.namaBelakang}`)
+            }
+        }
+        
+        // Object instance (Menjadi turunan dari constructor Function)
+        const kiki = new Person("Kiki", "Afrianto");
+        kiki.sayBye = function() {
+            console.info("sampai jumpa")
+        }
+        const bayu = new Person("Bayu", "Antoro");
+
+        // Menambahkan property / method ke dalam constructor functionnya lewat prototypenya
+        Person.prototype.sayBye = function(){
+            console.info(`Good Bye ${this.namaDepan }`)
+        }
+
+        Person.prototype.running = function(){
+            console.info(`${this.namaDepan} on running`)
+        }
+
+        kiki.sayBye();
+        kiki.running();
+        bayu.sayBye()
+        bayu.running()
+
+
+        console.log(kiki)
+        console.log(bayu)
+
+        // Cara kerja prototype adalah cek terlebih dahulu pada object instance nya. apabila ada property atau method baru yang dibuat di luat constructor functionnya maka akan dieksekusi terlebih dahulu (tampilkan). meskipun dibuat langsung pada prototypenya. karna prototype tetap akan menambahkan properti / method baru tersebut ke constructor functionnya (hanya dalam prototypenya saja bisa diakses)
+
+
+    </script>
+</body>
+</html>

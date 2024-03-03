@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Inheritance</title>
+</head>
+<body>
+    <script>
+
+        // Cara Yang Salah 1
+        function Employee(name) {
+            this.name = name;
+        }
+
+        function Manager(name) {
+            this.name = name
+        }
+
+        // Membuat di prototypenya
+        // Manager.prototype = Employee.prototype
+
+        // Manager.prototype.sayHello = function(name){
+        //     console.info(`Hello ${name}, my name is Manager ${this.name}`)
+        // }
+
+        // Employee.prototype.sayHello = function(name) {
+        //     console.info(`Hello ${name}, my name is Employee ${this.name}`)
+        // }
+
+        // const kiki = new Employee("Budi")
+        // kiki.sayHello("Kiki")
+        // const afrianto = new Manager("Eko")
+        // afrianto.sayHello("Joko")
+
+        // Cara Yang Benar
+        Manager.prototype = Object.create(Employee.prototype) // --> Membuat object baru pada prototype objectnya.
+
+        Manager.prototype.sayHello = function(name) {
+            console.info(`Hello ${name}, my name is Manager ${this.name}`)
+        }
+
+        Employee.prototype.sayHello = function(name) {
+            console.info(`Hello ${name}, my name is employee ${this.name}`)
+        }
+
+        // Membuat Instance Object
+        const kiki = new Employee("kiki");
+        kiki.sayHello('joko')
+        const bayu = new Manager("bayu")   
+        bayu.sayHello('joko')     
+
+        console.info(kiki)
+        console.info(bayu)
+
+
+    </script>
+</body>
+</html>

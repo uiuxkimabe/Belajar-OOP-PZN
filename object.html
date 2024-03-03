@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Membuat Object Biasa dengan membuat variable dengan isi berupa type data object
+        const eko = {
+            firstName : "Kiki",
+            lastName : "Eko"
+        }
+        const budi = {
+            firstName : "Budi",
+            lastName : "Cahyo"
+        }
+
+        // Membuat COnstructor Function (Cara Lama)
+        // - Cirinya Nama Function diawali Kapital termasuk jika Dua Kata Misal PremumMember()
+        function Person() {
+            // Property Person
+            this.firstName = "",
+            this.lastName = ""
+        }
+
+        // Membuat Object dari Constructor Function (Memanggil Costructor Fucntion)
+        const kiki = new Person()
+        kiki.firstName = "Kiki"
+        kiki.lastName = "Afrianto"
+        const afrianto = new Person()
+        afrianto.firstName = 'Cindy'
+        afrianto.lastName = 'Andriani'
+
+        console.info(kiki,afrianto)
+
+
+        // Method Constructor Function
+        function Member() {
+            // Property Object di Constructor Function
+            this.firstName = "",
+            this.lastName = "",
+            // Method COnstructor Funtion
+            this.sayHello = function(params) {
+                console.info(`Hello ${this.firstName} Welcome to ${this.lastName} ${params}`)
+            }
+        }
+
+        // Memanggil Object
+        const kim = new Member();
+        kim.firstName = "Kiki";
+        kim.lastName = "Cindy"
+        kim.sayHello('house')
+
+        const abe = new Member();
+        abe.firstName = 'Abey';
+        abe.lastName = 'Lasttri';
+        abe.sayHello('home')
+
+        // Membuat Parameter Di Constructor Function
+        function Hero(firstName,lastName) {
+            this.namaDepan = firstName;
+            this.namaBelakang = lastName;
+            this.sayHello = function() {
+                console.info(`Hello ${this.namaDepan} my name is ${this.namaBelakang}`)
+            }
+        }
+
+        const kimabe = new Hero("Kiki","Afrianto");
+        kimabe.sayHello()
+
+        const roxane = new Hero("Roxane","Friday");
+        roxane.sayHello()
+
+
+    </script>
+</body>
+</html>
