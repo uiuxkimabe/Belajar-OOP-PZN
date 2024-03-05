@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Super Method</title>
+</head>
+<body>
+    <script>
+
+        class Rectangle {
+            shape() {
+                console.info("Shape Rectangle")
+            }
+        }
+
+        class Circle extends Rectangle {
+            shape(){
+                // Untuk memanggil method yang sama pada class rectangle maka gunakan super.nama_methodnya
+                super.shape() //memanggil method kotak (memanggil super method harus di dalam method yg akan kita panggil)
+                console.info("Shape Circle Method Circle. Kalo Muncul Rectangle Berarti super methodnya berfungsi")
+            }
+        }
+
+        const bulat = new Circle()
+        bulat.shape()
+
+
+    </script>
+</body>
+</html>
