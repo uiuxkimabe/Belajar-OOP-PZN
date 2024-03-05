@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Constructor</title>
+</head>
+<body>
+    <script>
+
+        // class Employee {
+        //     constructor(firstName) {
+        //         this.firstName = firstName;
+        //     }
+
+        //     sayHello(name) {
+        //         console.info(`Hello ${name}, My Name Is ${this.firstName} I'm Employee`)
+        //     }
+        // }
+
+        // class Manager extends Employee {
+        //     sayHello(name) {
+        //         console.info(`Hello ${name}, My Name Is ${this.firstName} I'm Manager`)
+        //     }
+        // }
+
+        // Instance Object
+        // const kiki = new Employee("kiki")
+        // kiki.sayHello("Rahmat")
+
+        // const king = new Manager('King')
+        // king.sayHello("Kemed")
+
+
+        // Super Constructor
+        class Karyawan {
+            constructor(firstName) {
+                this.firstName = firstName
+            }
+
+            sayHello(name) {
+                console.info(`Hello ${this.firstName}, I'm Karyawan Seperti ${name}`)
+            }
+        }
+
+        // Class Hod ini berpesan sbg child dari lass karyawan
+        class Hod extends Karyawan {
+            // Untuk bisa mengakses constructor dari class lain, jika inheritance maka wajib menggunakan kata kunci super(nama parameter) dari constructor yang dibuat extends. jika tidak maka akan error.
+            
+            constructor(firstName,lastName) {
+                super(firstName) // Kata kunci super hanya bisa dimasukkan di dalam constructor.
+                this.lastName = lastName
+            }
+
+            sayHello(name) {
+                console.info(`Hello ${this.firstName} ${this.lastName}, I'm HOD Seperti ${name}`)
+            }
+        }
+
+        const irfan = new Karyawan('Irfan')
+        irfan.sayHello('daden')
+
+        const joe = new Hod('joe','ped')
+        joe.sayHello('joko')
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

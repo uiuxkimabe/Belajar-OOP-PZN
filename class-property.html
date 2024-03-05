@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Property</title>
+</head>
+<body>
+    <script>
+
+        // Membuat Class Property
+        class Person {
+            constructor(name) {
+                this.name = name
+                // function yang ditambahkan ini sebenarnya menempel pada instance objectnya
+                this.say = function(kid) {
+                    console.info(`Hello ${this.name} i'm ${kid}`)
+                }
+            }
+        }
+
+        const kiki = new Person("Kiki")
+        kiki.say("Dani")
+
+    </script>
+</body>
+</html>

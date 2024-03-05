@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Method</title>
+</head>
+<body>
+    <script>
+
+        class Person {
+            constructor(name) {
+                this.firstName = name
+            }
+
+            // Menambahkan method direkomendasikan buat langsung jangan di dalam constructor
+            // Method ini masuk ke dalam prototypenya
+            say(name) {
+                console.info(`Hello ${this.firstName} i'm ${name}`)
+            } 
+
+        }
+
+
+        const kiki = new Person("Dendi")
+        kiki.say("Kim")
+
+
+    </script>
+</body>
+</html>
