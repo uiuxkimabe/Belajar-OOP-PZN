@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Private Field</title>
+</head>
+<body>
+    <script>
+
+        // Privat class field hanay bisa diakses dari dalam classnya saja
+        // Tidak bisa diakses di public
+        class Customer {
+            #company = "PT BC Company"; //TIdak bisa diakses dari luar
+            #owner;
+
+            constructor(ownerName) {
+                this.#owner = ownerName
+            }
+        }
+
+        const kiki = new Customer("Kiki");
+        console.info(kiki)
+
+
+        // Contoh Lain
+        class Count {
+            #count = 0;
+
+            increment() {
+                this.#count++;
+            }
+
+            get() {
+                return this.#count;
+            }
+        }
+
+        const hitung = new Count();
+        hitung.increment()
+        hitung.increment()
+        hitung.increment()
+
+
+        console.info(hitung.get())
+
+    </script>
+</body>
+</html>

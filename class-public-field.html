@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Public Field</title>
+</head>
+<body>
+    <script>
+
+        // Public Field (Akan menmpel di di instance objectnya)
+        // Public field merupakan default dari js bisa diakses public
+        // Bisa diakses dari dalam class dan dari luar class
+        class Customer {
+            
+            // Sejajar Dengan Method
+            firstName;
+            lastName;
+            balance = 0;
+
+            // untuk parameter
+            constructor(namaDepan, namaBelakang) {
+                this.firstName = namaDepan //this.firstName mengakses public class field atas begitu juga lastName
+                this.lastName = namaBelakang
+            }
+
+            sayHello() {}
+
+            // 
+
+        }
+
+        const kiki = new Customer("Kiki", "Afrianto");
+        console.info(kiki)
+
+    </script>
+</body>
+</html>
