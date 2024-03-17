@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Class Field</title>
+</head>
+<body>
+    <script>
+
+        // Static Class Field 
+        // Jika menambahkan kata kunci static pada field atau method di dalam class, maka field / method tersebut bukan lagi milik instance object, melainkan milik class nya sendiri.
+        // biasanya digunakan jika ingin membuat utility field atau function
+        // cara mengakses static class field pun tidak lagi lewat object, tapi lewat classnya
+        // static class field sifatnya global, tdk peduli dapat diakses dimanapun atau siapa yang akses hasilnya akan sama
+        // cara mengkasesnya bukan lagi dengan memanggil object instancenya, melainkan langsung pada classnya
+        // contoh
+        // console.info(Config.(nama_fieldnya))
+
+
+        class Config {
+            static name = "Brata Corporate";
+            static version = 1.0;
+            static author = "Kiki Afrianto Brata"
+        }
+
+        // static class field sudah menjadi milik classnya, tidak bisa lagi diakses meskipun membuat object baru
+        const kiki = new Config()
+
+        // Cara aksesnya langsung panggil nama class.namafieldnya
+        // dapat diakses dimanapun karna sifatnya global, karna nama classnya sudah seperti funtion yang bebas dipanggil dimanapun
+        // dan fieldnya bisa diubah secara bebas
+
+        console.info(Config.name = "BC Corporate")
+        console.info(Config.name)
+        console.info(Config.version)
+        console.info(Config.author)
+
+        console.info(typeof Config) //type datanya berupa function
+        
+
+    </script>
+</body>
+</html>
