@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Instance Of</title>
+</head>
+<body>
+    <script>
+        
+        // Operator instance of digunakan untuk mengecek apakah sebuah object merupakan bagian dari instance class tertentu atau bukan
+        // Menghasilkan boolean true / false
+
+        class Employee {
+            constructor(firstName,lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            sayHello() {
+                console.info(`Hello ${this.firstName} is a Employee`)
+            }
+
+
+        }
+
+        class Manager extends Employee {
+            sayHi() {
+                console.info(`Hello ${this.firstName} i'm manager too`)
+            }
+        }
+
+
+        const kiki = new Employee();
+        const budi = new Manager();
+
+        // cara cek instance of
+        console.info(kiki instanceof Employee) // true emang dibuat di instance employee
+        console.info(kiki instanceof Manager) // false bukan dibuat di instance manager
+        console.info(budi instanceof Employee) // true karna Manager extend inheritance dengan Employee (manager merupakan bagian dari employee juga)
+        console.info(budi instanceof Manager) // true karna budi memang merupakan instance dari manager
+
+
+    </script>
+</body>
+</html>
