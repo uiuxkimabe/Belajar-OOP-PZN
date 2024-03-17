@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Class Method</title>
+</head>
+<body>
+    <script>
+
+        // Static Class Method sama seperti static class field.
+        // ketika ditambahkan kata kunci static maka method tersebut menjadi milik class
+        // untuk mengaksesnya tidak cukup dengan memanggil nama class.namaMethod(parameterjikaada)
+
+        class MathUtil {
+            // membuat method static
+            static summary(...numbers) {
+                let result = 0;
+                for (const total of numbers) {
+                    result += total
+                }
+                return result
+            }
+        }
+
+        const cekResult = MathUtil.summary(1,2,3,4,5)
+        console.info(cekResult)
+
+        // contoh lain
+        const jumlahSisi = MathUtil.summary(4,4,4,4)
+        console.info(jumlahSisi)
+
+
+
+    </script>
+</body>
+</html>
