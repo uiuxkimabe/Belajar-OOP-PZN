@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan - 1 Class</title>
+    <style>
+        *{
+            margin: 1em;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            border: 1px solid #6d6d6d;
+            padding: 1em;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h3 class="name">Nama</h3>
+            <p class="title">Jabatan</p>
+        </div>
+        <div class="card">
+            <h3 class="name">Nama</h3>
+            <p class="title">Jabatan</p>
+        </div>
+        <div class="card">
+            <h3 class="name">Nama</h3>
+            <p class="title">Jabatan</p>
+        </div>
+    </div>
+
+
+    <script>
+
+        class Person {
+            constructor(nama,jabatan) {
+                this.name = nama;
+                this.title = jabatan
+                this.names = document.querySelectorAll('.card h3')
+            }
+
+            autoInput(i) {
+                return this.names[i].innerHtml = this.name
+            }
+        }
+
+
+        const kiki = new Person("Kiki","Komisaris Utama")
+        kiki.autoInput(0);
+
+    </script>
+</body>
+</html>
