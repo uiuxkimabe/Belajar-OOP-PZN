@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <script>
+
+        class MathUtil {
+            static summary (...numbers) {
+                if (numbers == 0) {
+                    throw new Error ("parameter summary belum diisi, jadinya error")
+                }
+
+                let total = 0
+                for (const result of numbers) {
+                    total += result
+                }
+                return total
+
+            }
+        }
+
+        
+        try {
+            let kosongan = MathUtil.summary()
+            console.info(kosongan) // ini harusnya error karna parameternya summary kosong
+            document.writeln("Jika pesan ini muncul maka tidak terjadi error")
+        } catch (error) {
+            const notif = document.writeln(`Terdapat error karena : ${error.message}`)
+        } finally {
+            console.info("Program Tetap di Jalankan")
+        }
+
+        // Block finally mau kondisi error ataupun tidak jika masih ada kode yang harus di eksekusi, maka tetap akan dijalankan
+
+        // Contoh Lain Finally, membuat counter
+
+        class Counter {
+            #counter = 0;
+
+            next() {
+                return this.#counter++
+            }
+        }
+
+
+        const coba = new Counter()
+        console.info(coba.next())
+        console.info(coba.next())
+        console.info(coba.next())
+        console.info(coba.next())
+        console.info(coba.next())
+        console.info(coba.next())
+        console.info(coba.next())
+
+    </script>
+</body>
+</html>
