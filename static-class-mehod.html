@@ -23,10 +23,10 @@
             }
         }
 
-        const cekResult = MathUtil.summary(1,2,3,4,5)
-        console.info(cekResult)
+        // static method sudah tidak lagi milik instance object nya yang membuat object baru dengan kata kunci new, melainkan dia cukup dipanggil langsung nama kelasnya atau di tampung melalui variabel biasa terlebih dahulu
+        console.info(MathUtil.summary(1,2,3,4,5))
 
-        // contoh lain
+        // contoh lain dengan menampung dulu di variabel biasa
         const jumlahSisi = MathUtil.summary(4,4,4,4)
         console.info(jumlahSisi)
 

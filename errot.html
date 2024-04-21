@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <script>
+
+        // Lanjutan Materi Static Error
+
+        class sumNumbers {
+            static summary(...numbers) {
+             if (numbers.length == 0) {
+                throw new Error ("Number Harus Diisi terlebih dahulu") // jika numbers tidak memiliki nilai sama sekali maka muncul errir
+             }
+             let total = 0
+             for (const result of numbers) {
+                total += result
+             }
+             return total
+            }
+        }
+
+        const nilaiIsi = sumNumbers.summary(1,2,3)
+        console.info(nilaiIsi)
+        const nilaiKosong = sumNumbers.summary()
+        
+
+    </script>
+</body>
+</html>
