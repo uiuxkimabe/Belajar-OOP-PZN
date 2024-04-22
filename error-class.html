@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Class</title>
+</head>
+<body>
+    <script>
+        class ValidationError extends Error {
+            constructor(message, field) {
+                super(message);
+                this.field = field
+            }
+        }
+
+        class MathUtil {
+            static summary(...numbers) {
+                if (numbers == 0) {
+                    // Tangkap nama class error
+                    throw new ValidationError ("Parameter Summary tidak boleh kosong atau diisi angka nol", "numbers") 
+                    // "numbers" adalah parameter field pada class Validation Error
+                }
+
+                let result = 0
+                for (const total of numbers) {
+                    result += total
+                }
+                return result
+            }
+        }
+
+
+        try {
+            let kosong = MathUtil.summary()
+            console.info(kosong)
+        } catch (error) {
+            if (error instanceof ValidationError) {
+                console.info(`Terjadi Error Pada Field: ${error.field}, dengan error ${error.message}`)
+            } else {
+                console.info(`Terjadi Error : ${error.message}`)
+            }
+        } finally {
+            console.info(`Baris Kode Program Lain di lanjutkan`)
+        }
+
+
+    </script>
+</body>
+</html>
