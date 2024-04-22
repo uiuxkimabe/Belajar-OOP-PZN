@@ -42,7 +42,11 @@
             #counter = 0;
 
             next() {
-                return this.#counter++
+                try {
+                    return this.#counter
+                } finally {
+                    this.#counter++
+                }
             }
         }
 
