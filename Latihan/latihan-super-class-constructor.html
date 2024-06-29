@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // MEMBUAT PARAMETER CLASS JADI OBJECT
+
+        // Super class constructor adalah kata kunci untuk memanggil class constructor yang telah di extends
+        // Peletakan kata kunci super(nama constructor di class parentnya) harus berada sebelum penggunaan kata kunci this di class childnya artinya kata kunci super di panggil lebih dulu
+
+        class Employee {
+            constructor({firstName, corporateName}) {
+                this.name = firstName;
+                this.corporate = corporateName;
+            }
+
+            sayHello(guest) {
+                console.info(`Hi ${guest}, i'm employee ${this.name}  from ${this.corporate}`)
+            }
+        }
+
+        class Manager extends Employee {
+            constructor({firstName, corporateName}) {
+                super({corporateName})
+                this.name = firstName;
+            }
+
+             sayHello(guest) {
+                console.info(`Hi ${guest}, i'm Manager ${this.name}  from ${this.corporate}`) // Panggil parameter corporate seperti pada child nya
+            }
+        }
+
+        const karyawan = new Employee({
+            firstName: "Kiki",
+            corporateName: "Brata Corpora"
+        })
+        karyawan.sayHello('Rani')
+
+        const atasan = new Manager({
+            firstName: "Afrianto",
+            corporateName: "Brata Corpora"
+        })
+        atasan.sayHello('Rani')
+
+
+
+    </script>
+</body>
+</html>
