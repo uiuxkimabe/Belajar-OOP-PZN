@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Class Getter & Setter</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        class Person {
-            constructor(firstName, lastName) {
-                this.firstName = firstName;
-                this.lastName = lastName;
-            }
-
-            get fullName() {
-                return `${this.firstName} ${this.lastName}`
-            }
-
-            set fullName(value) {
-                const result = value.split(" ")
-                
-                this.firstName = result[0];
-                this.lastName = result[1]
-            }
+      class Person {
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
         }
 
-        const kiki = new Person("Kiki", "Afrianto")
-        console.info(kiki)
-        console.info(kiki.fullName)
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        }
 
-        kiki.fullName = "Cindy Andriani"
-        console.info(kiki)
-        console.info(kiki.fullName)
+        set fullName(value) {
+          const result = value.split(" ");
 
+          this.firstName = result[0];
+          this.lastName = result[1];
+        }
+      }
 
+      const kiki = new Person("Kiki", "Afrianto");
+      console.info(kiki);
+      console.info(kiki.fullName);
 
+      kiki.fullName = "Rania Nurfadilah";
+      console.info(kiki);
+      console.info(kiki.fullName);
     </script>
-</body>
+  </body>
 </html>
