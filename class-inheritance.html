@@ -8,26 +8,27 @@
 <body>
     <script>
 
+        // class Employee
+
         class Employee {
-            constructor(name) {
-                this.firstName = name
-            }
-            sayHello(){
-                console.info(`Hi, my name is ${this.firstName} I'm just employee just staff`)
+            sayHello(name) {
+                console.info(`Hi ${name}, my name is employee ${this.name}`)
             }
         }
 
         class Manager extends Employee {
-            sayHello() {
-                console.info(`Hi, my name is ${this.firstName} I'm employee as Manager`)
+            sayHello(name) {
+                console.info(`Hi ${name}, my name is manager ${this.name}, and i'm part of employee`)
             }
         }
 
-        const kiki = new Manager("Kimabe")
-        kiki.sayHello()
+        const kiki = new Employee()
+        kiki.name = "Kiki"
+        kiki.sayHello('brata')
 
-        const budi = new Employee("Budi")
-        budi.sayHello()
+        const afrianto = new Manager();
+        afrianto.name = "Afrianto";
+        afrianto.sayHello('brata')
 
 
     </script>
