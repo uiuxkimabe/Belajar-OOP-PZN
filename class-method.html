@@ -9,21 +9,25 @@
     <script>
 
         class Person {
-            constructor(name) {
-                this.firstName = name
+            constructor(king, queen) {
+                // property class
+                this.lord = king
+                this.queen = queen
             }
 
             // Menambahkan method direkomendasikan buat langsung jangan di dalam constructor
             // Method ini masuk ke dalam prototypenya
-            say(name) {
-                console.info(`Hello ${this.firstName} i'm ${name}`)
+            say(people) {
+                console.info(`the ${people} is joining in the front of castle to see wedding of ${this.lord} and ${this.queen}`)
             } 
 
         }
 
 
-        const kiki = new Person("Dendi")
-        kiki.say("Kim")
+        const news = new Person("kiki","raniah")
+        
+        // memanggil method di prototypenya 👇
+        news.say("Indonesian")
 
 
     </script>

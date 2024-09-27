@@ -10,25 +10,29 @@
 
         // class Employee
 
-        class Employee {
-            sayHello(name) {
-                console.info(`Hi ${name}, my name is employee ${this.name}`)
+        class People {
+            notif(people) {
+                console.info(`Hai ${people}, Saya ${this.nameHokage}, saya merupakan bagian dari ${people}`)
             }
         }
 
-        class Manager extends Employee {
-            sayHello(name) {
-                console.info(`Hi ${name}, my name is manager ${this.name}, and i'm part of employee`)
+        // untuk menghubungkan Hokage menjadi bagian People gunakan kata kunci extends
+        class Hokage extends People {
+            notif(people) {
+                console.info(`Hai ${people}, Saya ${this.nameHokage}, saya bagian dari ${people} dan jabatan saya di negeri ini adalah ${this.jabatan}`)
             }
         }
 
-        const kiki = new Employee()
-        kiki.name = "Kiki"
-        kiki.sayHello('brata')
+        const kiki = new People()
+        kiki.nameHokage = "Kiki Afrianto"
+        kiki.notif("Rakyat Indonesia")
 
-        const afrianto = new Manager();
-        afrianto.name = "Afrianto";
-        afrianto.sayHello('brata')
+        const kimabe = new Hokage()
+        kimabe.nameHokage = "Kiki Afrianto"
+        kimabe.jabatan = "Hokage"
+        kimabe.notif("Rakyat Indonesia")
+
+
 
 
     </script>

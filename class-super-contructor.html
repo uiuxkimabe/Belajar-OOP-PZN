@@ -35,35 +35,35 @@
 
 
         // Super Constructor
+        // Super constructor di buat di dalam constructor dari class setelah di extends
+       
         class Karyawan {
-            constructor(firstName) {
-                this.firstName = firstName
+            constructor(status,namaIndustri) {
+                this.status = status
+                this.namaIndustri = namaIndustri
             }
-
-            sayHello(name) {
-                console.info(`Hello ${this.firstName}, I'm Karyawan Seperti ${name}`)
-            }
-        }
-
-        // Class Hod ini berpesan sbg child dari class karyawan
-        class Hod extends Karyawan {
-            // Untuk bisa mengakses constructor dari class lain, jika inheritance maka wajib menggunakan kata kunci super(nama parameter) dari constructor yang dibuat extends. jika tidak maka akan error.
-            
-            constructor(firstName,lastName) {
-                super(firstName) // Kata kunci super hanya bisa dimasukkan di dalam constructor.
-                this.lastName = lastName
-            }
-
-            sayHello(name) {
-                console.info(`Hello ${this.firstName} ${this.lastName}, I'm HOD Seperti ${name}`)
+            hello(owner) {
+                console.info(`Hello ${owner} saya adalah ${this.status} di perusahaan ${this.namaIndustri}`)
             }
         }
 
-        const irfan = new Karyawan('Irfan')
-        irfan.sayHello('daden')
+        class Manager extends Karyawan {
+            constructor(status,namaIndustri,jabatan) {
+                super(status)
+                this.namaIndustri = namaIndustri
+                this.jabatan = jabatan
+            }
+            hello(owner) {
+                console.info(`Hello ${owner} saya adalah ${this.status} di perusahaan ${this.namaIndustri} sebagai ${this.jabatan}`)
+            }
+        }
 
-        const joe = new Hod('joe','ped')
-        joe.sayHello('joko')
+
+        const kiki = new Karyawan("Karyawan","Brata Company")
+        kiki.hello('ibu')
+
+        const raniah = new Manager("Karyawan","Brata Company","Manager")
+        raniah.hello('ibu')
 
 
 

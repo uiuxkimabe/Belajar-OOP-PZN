@@ -9,18 +9,22 @@
     <script>
 
         // Membuat Class Property
+        // Class Property bisa di tambahkan di dalam constructor atau tanpa constructor karena hasilnya sama berupa object juga
         class Person {
-            constructor(name) {
-                this.name = name
-                // function yang ditambahkan ini sebenarnya menempel pada instance objectnya
-                this.say = function(kid) {
-                    console.info(`Hello ${this.name} i'm ${kid}`)
-                }
+            constructor(namaAnak) {
+                this.kepalaKeluarga = "Kiki"
+                this.namaIstri = "RN"
+                this.anak = namaAnak
+                console.info(`
+                    Halo kami keluarga ${this.kepalaKeluarga}
+                    Memiliki istri berinisial ${this.namaIstri}
+                    memiliki anak bernama ${namaAnak}
+                `)
             }
         }
 
-        const kiki = new Person("Kiki")
-        kiki.say("Dani")
+        const keluargaKiki = new Person("Eka Paksi")
+        
 
     </script>
 </body>
