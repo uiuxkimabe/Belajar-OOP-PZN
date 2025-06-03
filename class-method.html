@@ -15,7 +15,8 @@
                 this.queen = queen
             }
 
-            // Menambahkan method direkomendasikan buat langsung jangan di dalam constructor
+            // Menambahkan method direkomendasikan buat langsung (dibawah constructor) jangan di dalam constructor
+            
             // Method ini masuk ke dalam prototypenya
             say(people) {
                 console.info(`the ${people} is joining in the front of castle to see wedding of ${this.lord} and ${this.queen}`)
@@ -29,6 +30,15 @@
         // memanggil method di prototypenya 👇
         news.say("Indonesian")
 
+        const hero = new Person("yudhistira", "pramesti")
+        // Membuat method di instance objectnya (Menjadikan methode berada di luar prototypenya, atau menempel di instance objectnya)
+        // Ini tidak direkomendasikan karena akan membuat method ini hanya bisa diakses oleh instance objectnya saja
+        // Sehingga jika membuat instance lain methode ini tidak akan bisa diakses
+        hero.ucapan = function morning() {
+            return `Hi People Kita Sambit Pahlawan Kita ${hero.lord} dan wakilnya bernama ${hero.queen}`
+        }
+        console.info(hero)
+        // console.info(hero.ucapan())
 
     </script>
 </body>

@@ -10,6 +10,7 @@
 
         // Membuat Class Property
         // Class Property bisa di tambahkan di dalam constructor atau tanpa constructor karena hasilnya sama berupa object juga
+        // Bisa juga menambahkan properti di instance objectnya
         class Person {
             constructor(namaAnak) {
                 this.kepalaKeluarga = "Kiki"
@@ -24,6 +25,11 @@
         }
 
         const keluargaKiki = new Person("Eka Paksi")
+
+        // Contoh Menambahkan property (baru) di instance objectnya
+        const keluargaKiki2 = new Person("Khawarizmi")
+        keluargaKiki2.anakKembar = "Bayani" // Properti baru (u/ anak Kembar)
+        console.info(keluargaKiki2)
         
 
     </script>
