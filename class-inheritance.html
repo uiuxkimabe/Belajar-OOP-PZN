@@ -8,30 +8,35 @@
 <body>
     <script>
 
-        // class Employee
+        // Sebuah class bisa melakukan pewarisan dari class lain dengan kata kunci extends
+        //  di JS class inheritance sama dengan prototype (Hanya bisa memiliki satu parent class)
+        // dari class yang di extends akan memiliki semua property dan method dari class tersebut
 
-        class People {
-            notif(people) {
-                console.info(`Hai ${people}, Saya ${this.nameHokage}, saya merupakan bagian dari ${people}`)
+        // Contoh :
+        class Karyawan {
+            sayHello(people="Semua") {
+                return console.info(`Halo ${people}, nama saya ${this.nama} saya adalah karyawan dengan posisi ${this.jabatan} di perusahaan ini.`);
             }
         }
 
-        // untuk menghubungkan Hokage menjadi bagian People gunakan kata kunci extends
-        class Hokage extends People {
-            notif(people) {
-                console.info(`Hai ${people}, Saya ${this.nameHokage}, saya bagian dari ${people} dan jabatan saya di negeri ini adalah ${this.jabatan}`)
-            }
+        class Manager extends Karyawan {
+            // class Manager mewarisi method sayHello dari class Karyawan
+            // jadi kita tidak perlu mendefinisikan ulang method sayHello
+            // kita bisa menambahkan perubahan / penambahan property atau method baru pada saat memanggil instance object Manager
         }
 
-        const kiki = new People()
-        kiki.nameHokage = "Kiki Afrianto"
-        kiki.notif("Rakyat Indonesia")
+        const staff = new Karyawan();
+        staff.nama = "Budi";
+        staff.jabatan = "Staff IT";
+        staff.sayHello("B Corporation");
 
-        const kimabe = new Hokage()
-        kimabe.nameHokage = "Kiki Afrianto"
-        kimabe.jabatan = "Hokage"
-        kimabe.notif("Rakyat Indonesia")
-
+        const hod = new Manager();
+        hod.nama = "Siti";
+        hod.jabatan = "Manager Operasional";
+        hod.sayHello();
+        
+        console.info(staff)
+        console.info(hod)
 
 
 

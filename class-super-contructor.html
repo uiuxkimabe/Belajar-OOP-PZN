@@ -8,68 +8,44 @@
 <body>
     <script>
 
-        // Ketika kita membuat constructor pada employee maka class yang extends otomatis akan mewarisi constructor tersebut
+        // Class inheritance sifatnya semacam membuat prototype yang akan di warisi pada child class nya
+        // Lalu bagaimana dengan constructor inheritance ?, sebenarnya constructor inheritance (yang diwariskan) hanya melakukan eksekusi dari constructor lain (parent classnya) agar bisa di panggil di child classnya
+        // untuk melakukan constructor inheritance makan harus menggunakan kata kunci "super()" di dalam constructor child classnya
+        // maka constructor pada parent classnya akan di panggil terlebih dahulu sebelum eksekusi constructor child classnya (constructor class child otomatis mewarisi constructor parent classnya)
+        // jika constructor di class childnya ingin ditambahkan (membuat tambahan) maka tetap kata kunci "super()" tetap di panggil di awal constructor child classnya
+        // Jika di parent class construtornya memiliki parameter, maka constructor di child classnya juga cantumkan propertynya dengan demikian pada saat "super()" dipanggil di child classnya, super keyword tersebut bisa ditambahkan parameter seperti constrctor parentnya
 
-        // class Employee {
-        //     constructor(firstName) {
-        //         this.firstName = firstName;
-        //     }
-
-        //     sayHello(name) {
-        //         console.info(`Hello ${name}, My Name Is ${this.firstName} I'm Employee`)
-        //     }
-        // }
-
-        // class Manager extends Employee {
-        //     sayHello(name) {
-        //         console.info(`Hello ${name}, My Name Is ${this.firstName} I'm Manager`)
-        //     }
-        // }
-
-        // Instance Object
-        // const kiki = new Employee("kiki")
-        // kiki.sayHello("Rahmat")
-
-        // const king = new Manager('King')
-        // king.sayHello("Kemed")
-
-
-        // Super Constructor
-        // Super constructor di buat di dalam constructor dari class setelah di extends
-       
+        // Contoh
         class Karyawan {
-            constructor(status,namaIndustri) {
-                this.status = status
-                this.namaIndustri = namaIndustri
+            constructor(nama, jabatan) {
+                this.nama = nama;
+                this.jabatan = jabatan;
             }
-            hello(owner) {
-                console.info(`Hello ${owner} saya adalah ${this.status} di perusahaan ${this.namaIndustri}`)
-            }
-        }
 
-        class Manager extends Karyawan {
-            constructor(status,namaIndustri,jabatan) {
-                super(status)
-                this.namaIndustri = namaIndustri
-                this.jabatan = jabatan
-            }
-            hello(owner) {
-                console.info(`Hello ${owner} saya adalah ${this.status} di perusahaan ${this.namaIndustri} sebagai ${this.jabatan}`)
+            sayHello(people = "Semua") {
+                return console.info(`Halo ${people}, nama saya ${this.nama} saya adalah karyawan dengan posisi ${this.jabatan} di perusahaan ini.`);
             }
         }
 
+        class Hod extends Karyawan {
+            constructor(nama, jabatan) {
+                super(nama, jabatan);
+                this.akses = "Perintah Bawahan"
+            }
 
-        const kiki = new Karyawan("Karyawan","Brata Company")
-        kiki.hello('ibu')
+            sayHello(people = "Semua") {
+                return console.info(`Halo ${people}, nama saya ${this.nama} saya adalah karyawan dengan posisi ${this.jabatan} di perusahaan ini. Saya bisa ${this.akses}.`);
+            }
+        }
 
-        const raniah = new Manager("Karyawan","Brata Company","Manager")
-        raniah.hello('ibu')
+        const staff = new Karyawan("Kiki", "Staff IT");
+        staff.sayHello();
+        const manager = new Hod("Rani", "Manager Operasional");
+        // manager.akses = "Mengatur Staff";
+        manager.sayHello();
 
-
-
-
-
-
+        console.info(staff);
+        console.info(manager);
 
 
     </script>
