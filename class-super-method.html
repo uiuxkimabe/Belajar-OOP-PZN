@@ -8,23 +8,31 @@
 <body>
     <script>
 
-        class Rectangle {
-            shape() {
-                console.info("Shape Rectangle")
+        // Super Method
+        // Kita bisa mengakses methode pada class parentnya 
+        // Caranya adalah dengan menggunakan super.nama_methodnya di dalam methode class childnya   
+        // Dengan kata lain , super adalah reference ke parent prototypenya artinya mengakses parent classnya
+        // super.nama_methodnya digunakan untuk mengakses method yang ada pada parent classnya untuk menjadi methode di child classnya
+
+
+        class Kotak {
+            bentuk() {
+                console.info("Bentuk Kotak")
             }
         }
 
-        class Circle extends Rectangle {
-            shape(){
-                // Untuk memanggil method yang sama pada class rectangle maka gunakan super.nama_methodnya
-                super.shape() //memanggil method kotak (memanggil super method harus di dalam method yg akan kita panggil)
-                console.info("Shape Circle Method Circle. Kalo Muncul Rectangle Berarti super methodnya berfungsi")
+        class Bulat extends Kotak {
+            bentuk() {
+                super.bentuk() //Memanggil methode parent class kotak
+                console.info("Bentuk Bulat")
             }
         }
 
-        const bulat = new Circle()
-        bulat.shape()
-
+        const kotak = new Kotak();
+        kotak.bentuk()
+        
+        const bulat = new Bulat();
+        bulat.bentuk() // undefined karena tidak ada method bentuk di class Bulat
 
     </script>
 </body>
