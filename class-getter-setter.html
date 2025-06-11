@@ -7,6 +7,10 @@
 </head>
 <body>
     <script>
+
+        // Class juga mendukung getter & setter
+        // Harus diingat bahwa getter & setter berada dalam prototype, bukan di instance object seperti method
+
         class Person {
             constructor(firstName, lastName) {
                 this.firstName = firstName;
@@ -14,24 +18,22 @@
             }
 
             get fullName() {
-                return `${this.firstName} ${this.lastName}`
+                return `${this.firstName} ${this.lastName}`;
             }
 
             set fullName(value) {
-                const result = value.split(" ")
-                
+                const result = value.split(" ");
                 this.firstName = result[0];
-                this.lastName = result[1]
+                this.lastName = result[1];
             }
         }
 
-        const kiki = new Person("Kiki", "Afrianto")
-        console.info(kiki)
-        console.info(kiki.fullName)
+        const nama = new Person("Kiki","Sutanto");
+        console.info(nama) //instance object "kiki" "sutanto"
+        console.log(nama.fullName); // Kiki Sutanto
 
-        kiki.fullName = "Cindy Andriani"
-        console.info(kiki)
-        console.info(kiki.fullName)
+        nama.fullName = "Kiki Afrianto"
+        console.info(nama) // instance object berubah jadi "kiki" "afrianto"
 
 
 
