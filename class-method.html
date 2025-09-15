@@ -27,7 +27,7 @@
 
         const news = new Person("kiki","raniah")
         
-        // memanggil method di prototypenya 👇
+        // memanggil method yang sudah dibikin di prototypenya 👇
         news.say("Indonesian")
 
         const hero = new Person("yudhistira", "pramesti")
@@ -39,6 +39,21 @@
         }
         console.info(hero)
         // console.info(hero.ucapan())
+
+        class Limitless {
+            constructor(target) {
+                this.target = target
+                this.press = function(step) {
+                    if (step !== 0) {
+                        console.info(`Teknik Telah Aktif dan musuh ${target} mati`)
+                    }
+                }
+            }
+        }
+
+        const gojo = new Limitless("kutukan")
+        gojo.press(1)
+        console.info(gojo)
 
     </script>
 </body>
