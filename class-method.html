@@ -49,10 +49,17 @@
                     }
                 }
             }
+            teknikBiru() {
+                return console.info(`Teknik Biru Aktif !, semua tersedot mendekat`)
+            }
+            teknikMerah() {
+                return console.info(`Teknik Merah Aktif !, semua terlempar menjauh`)
+            }
         }
 
         const gojo = new Limitless("kutukan")
         gojo.press(1)
+        gojo.teknikBiru()
         console.info(gojo)
 
     </script>

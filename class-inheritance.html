@@ -13,31 +13,51 @@
         // dari class yang di extends akan memiliki semua property dan method dari class tersebut
 
         // Contoh :
-        class Karyawan {
-            sayHello(people="Semua") {
-                return console.info(`Halo ${people}, nama saya ${this.nama} saya adalah karyawan dengan posisi ${this.jabatan} di perusahaan ini.`);
+        // class Karyawan {
+        //     sayHello(people="Semua") {
+        //         return console.info(`Halo ${people}, nama saya ${this.nama} saya adalah karyawan dengan posisi ${this.jabatan} di perusahaan ini.`);
+        //     }
+        // }
+
+        // class Manager extends Karyawan {
+        //     // class Manager mewarisi method sayHello dari class Karyawan
+        //     // jadi kita tidak perlu mendefinisikan ulang method sayHello
+        //     // kita bisa menambahkan perubahan / penambahan property atau method baru pada saat memanggil instance object Manager
+        // }
+
+        // const staff = new Karyawan();
+        // staff.nama = "Budi";
+        // staff.jabatan = "Staff IT";
+        // staff.sayHello("B Corporation");
+
+        // const hod = new Manager();
+        // hod.nama = "Siti";
+        // hod.jabatan = "Manager Operasional";
+        // hod.sayHello();
+        
+        // console.info(staff)
+        // console.info(hod)
+
+        // Contoh lain :
+
+        class Clan {
+            teknikBawaan(margaClan) {
+                console.info(`Hi saya dari clan ${margaClan}, saya bisa teknik attack reverse`);
             }
         }
 
-        class Manager extends Karyawan {
-            // class Manager mewarisi method sayHello dari class Karyawan
-            // jadi kita tidak perlu mendefinisikan ulang method sayHello
-            // kita bisa menambahkan perubahan / penambahan property atau method baru pada saat memanggil instance object Manager
+        class Shaman extends Clan {
+            // class shaman otomatis mewarisi method hasil extends dari class parentnya yaitu class Clan
+            // sehingga shaman bisa menggunakan method teknikBawaan dari class Clan karena masih 1 clan
         }
 
-        const staff = new Karyawan();
-        staff.nama = "Budi";
-        staff.jabatan = "Staff IT";
-        staff.sayHello("B Corporation");
+        const udin = new Clan();
+        udin.teknikBawaan("Urokodaki");
+        console.info(udin)
 
-        const hod = new Manager();
-        hod.nama = "Siti";
-        hod.jabatan = "Manager Operasional";
-        hod.sayHello();
-        
-        console.info(staff)
-        console.info(hod)
-
+        const daega = new Shaman();
+        daega.teknikBawaan("Kamado");
+        console.info(daega)
 
 
     </script>
